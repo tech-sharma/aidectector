@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Phishing & Deepfake Detector</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <h1>🧠 AI Phishing & Deepfake Detector</h1>
+    <div class="top-actions">
+      <button id="toggleTheme" class="ghost">🌙 Dark</button>
+      <button id="openDashboard" class="ghost">📊 Dashboard</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Email Section -->
+    <section class="card">
+      <h2>📧 Email Phishing Detector</h2>
+      <textarea id="emailInput" placeholder="Paste the email text here..."></textarea>
+      <div class="row">
+        <button id="checkEmail">Analyze Email (AI)</button>
+        <button id="checkEmailHeu" class="ghost">Analyze (Heuristic)</button>
+        <button id="clearEmail" class="ghost">Clear</button>
+      </div>
+      <div id="emailResult" class="result"></div>
+    </section>
+
+    <!-- Media Section -->
+    <section class="card">
+      <h2>🎥 Deepfake Detector</h2>
+      <input type="file" id="mediaInput" accept="image/*,video/*" />
+      <div class="row">
+        <button id="checkMedia">Analyze Media (AI)</button>
+        <button id="checkMediaHeu" class="ghost">Analyze (Heuristic)</button>
+        <button id="clearMedia" class="ghost">Clear</button>
+      </div>
+      <div id="mediaResult" class="result"></div>
+    </section>
+  </div>
+
+  <aside id="dashboard" class="dashboard hidden" aria-hidden="true">
+    <div class="dashboard-inner">
+      <header class="dashboard-header">
+        <h3>📊 Dashboard</h3>
+        <div>
+          <button id="closeDashboard" class="ghost">Close</button>
+        </div>
+      </header>
+
+      <section class="dash-stats">
+        <div class="stat">
+          <div class="stat-number" id="totalEmails">0</div>
+          <div class="stat-label">Emails Analyzed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" id="totalMedia">0</div>
+          <div class="stat-label">Media Analyzed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" id="avgPhish">0%</div>
+          <div class="stat-label">Avg Email Risk</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" id="avgFake">0%</div>
+          <div class="stat-label">Avg Media Fake%</div>
+        </div>
+      </section>
+
+      <section class="dash-history">
+        <h4>Recent Activity</h4>
+        <ul id="historyList" class="history-list"></ul>
+      </section>
+
+      <footer class="dash-footer">
+        <button id="clearHistory" class="danger">Clear History</button>
+      </footer>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
